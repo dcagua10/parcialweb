@@ -88,7 +88,7 @@ For the development of the page, the technologies used were:
 - Reactstrap
 - Heroku
 - Vega-Lite
-- Venga-Embed
+- Vega-Embed
 
 ## Screenshot 
 Here is a small view of the project developed
