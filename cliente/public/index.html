@@ -8,6 +8,7 @@
     manifest.json provides metadata used when your web app is added to the
     homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
   -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
   <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
   <!--
@@ -20,14 +21,15 @@
     Learn how to configure a non-root public URL by running `npm run build`.
   -->
   <!-- Cambiar aqui el titulo de la aplicacion -->
-  <title>Parcial App </title>
+  <title>Parcial App</title>
 </head>
 <body>
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
   <!--Incluir los divs que se van a mostrar-->
-  <div id="root"></div>
+  <div id="root">Componentes iniciales</div>
+  
   <!--
     This HTML file is a template.
     If you open it directly in the browser, you will see an empty page.
@@ -38,6 +40,9 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@material-ui/core/umd/material-ui.production.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm//vega@3.3.1"></script>
     <script src="https://cdn.jsdelivr.net/npm//vega-lite@2.4.3"></script>
     <script src="https://cdn.jsdelivr.net/npm//vega-embed@3.11"></script>

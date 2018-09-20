@@ -1,7 +1,7 @@
-# Exam 1 Web Development - Subject: 
+# Exam 1 Web Development - Vega Graphs
 
 ## Description
-Description Here
+This application allows users to generate graphs using Vega-Lite through inputs
 
 ## Motivation
 This is part of the first exam of Web Development in the University of Los Andes to encourage students the use of technologies including APIs through the develop of usefull sollutions 
