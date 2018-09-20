@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-//mis imports
+//Imports
 import Formulario from './componentes/Formulario';
-
+import Papaparser from './componentes/Papaparser';
 
 class App extends Component {
 
-  //Uso del state
+  //State
   constructor(props){
     super(props);
     this.state= {
@@ -53,6 +53,7 @@ class App extends Component {
         {this.renderObjects()}
         {/* Formulario de ejemplo */}
         <Formulario/>
+        <Papaparser/>
       
       </div>
     );

@@ -29,6 +29,23 @@ export default class Formulario extends Component {
   handleSubmit(event) {  
     // Metodo que se ejecuta cuando se envia el formulario
     alert(`Te llamas: ${this.state.nombre} ${this.state.apellido}`);
+    console.log(this.state);
+    //State a Json
+    const data = JSON.stringify(this.state);
+    console.log(data);
+    fetch('/posData',{
+      method: 'POST',
+      headers: { 'Content-Type' : 'application/json' },
+      body: data
+    }).then(res => res.json())
+      .then(json => {
+        if(json.success){
+          console.log('enviado');
+        }
+        else{
+          console.log('fallo el json');
+        }
+      });
     event.preventDefault();
   }
 

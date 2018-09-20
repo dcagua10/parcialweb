@@ -2,19 +2,19 @@ var express = require('express');
 var router = express.Router();
 require('dotenv').config();
 
-//Codigo copiado de la documentacion de mongo, sirve para conectarse a mongo #GraciasFaryd
+//Codigo documentacion mongo
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
-// Connection URL
+// Connection URL (localhost / MongoDB)
 const url = process.env.MONGODB_URI;
 
-// Database Name MODIFICAR
+// Database Name MODIFICAR (nombre / env MongoDB)
 const dbName = process.env.DB_NAME;
 // Collection Name MODIFICAR
 const collectionName = 'objects';
 
-//funcion para conseguir los datos
+//Tomar los datos
 function getData(callback){
   // Use connect method to connect to the server
   MongoClient.connect(url, function (err, client) {
@@ -31,11 +31,24 @@ function getData(callback){
   });
 }
 
-
+// Insercion de documentos
+const insertDocuments = function(db,data, callback) {
+  // Get the documents collection
+  let collectionName = 'test';
+  const collection = db.collection(collectionName);
+  // Insert some documents
+  collection.insertOne(data, function(err, result) {
+    console.log("Inserted document");
+    console.log(result);
+    callback(result);
+  });
+}
 // Fin del codigo copiado 
 
 //Funcion para encontrar todos los documentos de la DB
 const findDocuments = function(db, callback) {
+  // Collection Name MODIFICAR
+  let collectionName = 'objects';
   // Get the documents collection
   const collection = db.collection(collectionName);
   // Find some documents
@@ -49,20 +62,49 @@ const findDocuments = function(db, callback) {
 //END 
 
 
-/* GET home page. */
+/* Home Page */
 router.get('/', function(req, res, next) {
   //Ya no voy a renderizar el template del index
   // res.render('index', { title: 'Express' });
 });
 
-/**A partir de aqui voy a crear mis propios endpoints */
+/* Lista de Endpoints a nivel de Backend */
 //getData ejemplo
 router.get('/getData', function(req, res) {
-  //Añadimos un header para indicar que lo que envio es de tipo json 
+  //Header que indica el envio de un archivo json
   res.setHeader('Content-Type', 'application/json');
   getData((data)=>
     res.send(data)
   );
 });
+
+//postData ejemplo
+router.post('/nada', function(req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  insertDocuments((data)=>
+  res.send(data)
+  );
+});
+
+router.post('/posData', function(req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  const { body } = req;
+  const {
+    //id,
+    nombre,
+    apellido
+  } = body;
+  MongoClient.connect(url, function(err, client) {
+    assert.equal(null, err);
+    console.log("Connected successfully to server");
+    
+    const db = client.db(dbName);
+    insertDocuments(db,body,(data)=>
+    res.send(data)
+    );
+  });
+});
+
+module.exports = router;
 
 module.exports = router;
