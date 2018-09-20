@@ -9,14 +9,14 @@ This is part of the first exam of Web Development in the University of Los Andes
 ## Installation
 Install NodeJS with ReactJS and ExpressJS packages
 
-Install npm or yarn depending what you prefer
+Install npm (Included with NodeJS)
 
 Install MongoDB (for cmd) and MongoDB Compass (Optional), MongoDB Compass allows to see structured data
 
 ## Deployment
 Once downloaded, get in the root folder of the App and install all dependencies using
 
-Advice: Use npm or yarn, not both
+Advice: Use npm for installation and start
 
 Go to the server folder
 
@@ -27,16 +27,16 @@ cd [User Root]/parcialweb/
 Install backend dependencies
 
 `
-npm install / yarn install
+npm install
 `
 
 Then run the following command
 
 `
-npm start / yarn start
+npm start
 `
 
-Go to the client folder
+Open another instance of CMD and go to the client folder
 
 `
 cd [User Root]/parcialweb/cliente
@@ -45,13 +45,13 @@ cd [User Root]/parcialweb/cliente
 Install frontend dependencies
 
 `
-npm install / yarn install
+npm install
 `
 
 Then run the following command
 
 `
-npm start / yarn start
+npm start
 `
 
 Troubles with data?
