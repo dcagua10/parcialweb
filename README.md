@@ -46,6 +46,7 @@ Prepare the data by running the following commands
 cd [User Root]/parcialweb/data/
 `
 
+Troubles with data?
 You can import a local file or setup a Mongo database
 
 Local File:
@@ -55,6 +56,10 @@ Import the information in the json format available in data folder
 mongoimport -d files -c objects --jsonArray --file files.json
 `
 
+Setup a Mongo database
+Create a .env file and set
+* ```MONGODB_URI=<mongo_db_url>```
+* ```DB_NAME=lostNFound```
 
 ## Technologies used
 For the development of the page, the technologies used were:
