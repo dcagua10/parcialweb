@@ -15,39 +15,54 @@ Install MongoDB (for cmd) and MongoDB Compass (Optional), MongoDB Compass allows
 
 ## Deployment
 Once downloaded, get in the root folder of the App and install all dependencies using
+
 Advice: Use npm or yarn, not both
 
 Go to the server folder
+
+`
+cd [User Root]/parcialweb/
+`
+
+Install backend dependencies
+
 `
 npm install / yarn install
 `
 
 Then run the following command
+
 `
 npm start / yarn start
 `
 
 Go to the client folder
+
 `
 cd [User Root]/parcialweb/cliente
 `
 
-Then run the following command
+Install frontend dependencies
+
 `
 npm install / yarn install
 `
+
+Then run the following command
+
 `
 npm start / yarn start
 `
+
+Troubles with data?
+
+You can import a local file or setup a Mongo database
 
 Prepare the data by running the following commands
 
 `
 cd [User Root]/parcialweb/data/
 `
-
-Troubles with data?
-You can import a local file or setup a Mongo database
 
 Local File:
 Import the information in the json format available in data folder
