@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.css';
 //Imports
 //import Formulario from './componentes/Formulario';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-import AppBar from '@material-ui/core/AppBar';
+import Header from './componentes/Layouts/Header.js';
+import Footer from './componentes/Layouts/Footer.js';
 import Papaparser from './componentes/Papaparser.js';
 import Graph from './componentes/Graph.js';
 
@@ -23,7 +23,7 @@ class App extends Component {
   
   componentDidMount(){
     fetch('/getData')
-/*     //Retorno del objeto JSON
+    /*     //Retorno del objeto JSON
     .then((res)=>res.json() )
     //Se establece el state con los objetos del json
     .then((json)=> this.setState({objetos:json}))
@@ -43,25 +43,23 @@ class App extends Component {
   }
   
   render() {
-    return (
-      <div className="App">
-      <MuiThemeProvider>
-        <AppBar/>
-      </MuiThemeProvider>
-      <h1>Exam 1 Web Dev</h1>
-        <div className="AppH">
-        <header className="App-header">
-        <h1> Welcome </h1>
-        {/* Formulario de ejemplo */}
-        {/* <Formulario/> */}
-        <Papaparser/>
-        <Graph/>
-        </header></div>
-        
-        </div>
-        );
-      }
-    }
+    return <Fragment>
     
-    export default App;
+    <div className="App">
+    {/*         <h1>Exam 1 Web Dev</h1>
+      <div className="AppH">
+      <header className="App-header">
+    <h1> Welcome </h1> */}
+    {/* Formulario de ejemplo */}
+    {/* <Formulario/> */}
+    <Header/>
+    <Papaparser/>
+    <Graph/>
+    </div> 
     
+    </Fragment>
+    
+  }
+}
+
+export default App;

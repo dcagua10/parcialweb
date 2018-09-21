@@ -28,7 +28,7 @@ export default class Graph extends Component {
     
     
     parser(){
-        Papa.parse('https://raw.githubusercontent.com/domoritz/maps/master/data/seattle-temps.csv', {
+        Papa.parse('data/sample.csv', {
         download: true,
         header: true,
         complete: function(results) {
