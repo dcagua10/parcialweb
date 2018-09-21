@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 //Imports
 //import Formulario from './componentes/Formulario';
-import Papaparser from './componentes/Papaparser';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import AppBar from '@material-ui/core/AppBar';
+import Papaparser from './componentes/Papaparser.js';
+import Graph from './componentes/Graph.js';
 
 class App extends Component {
   
@@ -19,14 +22,13 @@ class App extends Component {
   }
   
   componentDidMount(){
-    //Retorno del objeto JSON
+    fetch('/getData')
+/*     //Retorno del objeto JSON
     .then((res)=>res.json() )
     //Se establece el state con los objetos del json
     .then((json)=> this.setState({objetos:json}))
     //Error que se puede generar
-    .catch((err) => console.log(err));
-    
-    
+    .catch((err) => console.log(err)); */ 
   }
   
   renderObjects(){
@@ -43,15 +45,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <MuiThemeProvider>
+        <AppBar/>
+      </MuiThemeProvider>
       <h1>Exam 1 Web Dev</h1>
-      return(
-        <div className="App">
+        <div className="AppH">
         <header className="App-header">
         <h1> Welcome </h1>
         {/* Formulario de ejemplo */}
-        <Formulario/>
+        {/* <Formulario/> */}
         <Papaparser/>
-        <div id="vis"></div>
+        <Graph/>
         </header></div>
         
         </div>
