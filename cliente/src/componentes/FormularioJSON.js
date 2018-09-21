@@ -37,7 +37,7 @@ class FormularioJSON extends Component {
     }
 
     this.setState({
-      jsonToStr:valido
+      jsonStr:valido
     });
   }
 

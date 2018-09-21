@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import vegaEmbed from 'vega-embed';
 
 
-class Graph extends Component {
+class GraphCSV extends Component {
     constructor(props) 
     {
         //Props heredados
@@ -17,10 +17,15 @@ class Graph extends Component {
                 },
                 'mark': 'bar',
                 'encoding': {
-                    'x': {'field': 'a', 'type': 'ordinal'},
-                    'y': {'field': 'b', 'type': 'quantitative'}
+                    'y': {'field': 'a', 'type': 'ordinal'},
+                    'x': {'field': 'b', 'type': 'quantitative'}
                 }
-            }
+            },
+            data:[
+                {"a": "A","b": 28}, {"a": "B","b": 55}, {"a": "C","b": 43},
+                {"a": "D","b": 91}, {"a": "E","b": 81}, {"a": "F","b": 53},
+                {"a": "G","b": 19}, {"a": "H","b": 87}, {"a": "I","b": 52}          
+            ]
         }
         //Binding Here
         this.click = this.onClick.bind(this);
@@ -53,6 +58,6 @@ class Graph extends Component {
     }
 
 
-export default Graph;
+export default GraphCSV;
 
 

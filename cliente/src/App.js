@@ -5,6 +5,7 @@ import './App.css';
 import Header from './componentes/Layouts/Header.js';
 import FormularioJSON from './componentes/FormularioJSON.js';
 import FormularioCSV from './componentes/FormularioCSV.js';
+import Review from './componentes/Review.js';
 
 class App extends Component {
   
@@ -29,6 +30,11 @@ class App extends Component {
     <div className="graph2">
     <br/><h1>Create your own Graph using CSV</h1>
     <FormularioCSV/>
+    </div>
+
+    <div className="review">
+    <br/><h1>Add a new graph review</h1>
+    <Review/>
     </div>
     </div>
     

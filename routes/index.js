@@ -7,10 +7,13 @@ const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
 // Connection URL (localhost / MongoDB)
+//const url = 'mongodb://localhost:27017';
 const url = process.env.MONGODB_URI;
 
 // Database Name MODIFICAR (nombre / env MongoDB)
+//const dbName = "parcialDB"
 const dbName = process.env.DB_NAME;
+
 // Collection Name MODIFICAR
 const collectionName = 'objects';
 
