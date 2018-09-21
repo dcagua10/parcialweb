@@ -1,4 +1,3 @@
-const Review = require('../../models/Review');
 var router = require('express').Router();
 require('dotenv').config();
 const MongoClient = require('mongodb').MongoClient;
@@ -12,23 +11,19 @@ router.post('/api/review', function(req, res) {
     first_name,
     last_name,
     description,
-    rating
+    rating,
+    dataG1,
+    dataG2
   } = body;
   console.log(body);
 
-  const newReview = new Review();
-  newReview.first_name = first_name;
-  newReview.last_name = last_name;
-  newReview.description = descripcion;
-  newReview.rating = rating;
-
-  console.log(Review);
+  var review={first_name:first_name,last_name:last_name,description:description,rating:rating, dataG1:null, dataG2:null};
 
   MongoClient.connect(url, function (err,db) 
   {
     if(err) throw err;
     const dbo = db.db(dbName);
-    dbo.collection('reviews').insertOne(newReview, function(err,res){
+    dbo.collection('reviews').insertOne(review, function(err,res){
       if (err) throw err;
       console.log('Review Add');
       db.close();

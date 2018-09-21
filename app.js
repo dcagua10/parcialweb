@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-//var reviewRouter = require('./routes/review')
+var reviewRouter = require('./routes/review')
 //Variable de Usuarios
 //var usersRouter = require('./routes/users');
 
@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'cliente/build')));
 
 app.use('/', indexRouter);
-//app.use('/', reviewRouter);
+app.use('/', reviewRouter);
 //Determina si la app utiliza un router para los usuarios
 //app.use('/users', usersRouter);
 

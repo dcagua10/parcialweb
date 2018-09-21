@@ -11,7 +11,10 @@ export default class Review extends Component {
       first_name : '',
       last_name: '',
       description:'',
-      rating: ''
+      rating: '',
+      dataG1:'',
+      dataG2:''
+
     };
 
      //Event Handlers: Le dicen a React como usar los datos

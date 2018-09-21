@@ -15,7 +15,7 @@ const url = process.env.MONGODB_URI;
 const dbName = process.env.DB_NAME;
 
 // Collection Name MODIFICAR
-const collectionName = 'objects';
+const collectionName = 'reviews';
 
 //Tomar los datos
 function getData(callback){
@@ -37,7 +37,7 @@ function getData(callback){
 // Insercion de documentos
 const insertDocuments = function(db,data, callback) {
   // Get the documents collection
-  let collectionName = 'test';
+  let collectionName = 'reviews';
   const collection = db.collection(collectionName);
   // Insert some documents
   collection.insertOne(data, function(err, result) {
@@ -51,7 +51,7 @@ const insertDocuments = function(db,data, callback) {
 //Funcion para encontrar todos los documentos de la DB
 const findDocuments = function(db, callback) {
   // Collection Name MODIFICAR
-  let collectionName = 'objects';
+  let collectionName = 'reviews';
   // Get the documents collection
   const collection = db.collection(collectionName);
   // Find some documents
@@ -110,4 +110,3 @@ router.post('/posData', function(req, res) {
 
 module.exports = router;
 
-module.exports = router;
