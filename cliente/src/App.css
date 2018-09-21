@@ -4,6 +4,19 @@
     background-color:white !important;
   }
   .container h1 {
-      margin: auto;
-      text-align: center;
+    margin: auto;
+    text-align: center;
   }
+  
+  .TextArea
+  {
+    margin: auto;
+    text-align: center;
+  }
+
+  .csvInput
+  {
+    margin: auto;
+    text-align: center;
+  }
+  

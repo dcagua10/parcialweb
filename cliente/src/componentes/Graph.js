@@ -1,53 +1,63 @@
 import React, { Component } from 'react';
-import Papa from 'papaparse';
-import VegaLite from 'react-vega-lite';
+import vegaEmbed from 'vega-embed';
 
 
-export default class Graph extends Component {
-    constructor(props) {
+class Graph extends Component {
+    constructor(props) 
+    {
         //Props heredados
         super(props);
         //State con los valores
         this.state ={
-            data: {
-                "name": {"url": "data/sample.csv"}
-            },
             spec:{
+                "$schema": "https://vega.github.io/schema/vega-lite/v3.0.0-rc6.json",
                 'description': 'A simple bar chart with embedded data.',
+                data: {
+                    "name": "data"
+                },
                 'mark': 'bar',
                 'encoding': {
                     'x': {'field': 'a', 'type': 'ordinal'},
                     'y': {'field': 'b', 'type': 'quantitative'}
                 }
-            }
-        };
-        
+            },
+            data:[
+                {"a": "A","b": 28}, {"a": "B","b": 55}, {"a": "C","b": 43},
+                {"a": "D","b": 91}, {"a": "E","b": 81}, {"a": "F","b": 53},
+                {"a": "G","b": 19}, {"a": "H","b": 87}, {"a": "I","b": 52}          
+            ]
+        }
         //Binding Here
-        this.parser = this.parser.bind(this);
+        this.click = this.onClick.bind(this);
     }
-    
-    
-    parser(){
-        Papa.parse('data/sample.csv', {
-        download: true,
-        header: true,
-        complete: function(results) {
-            const daticos = results.data;
-            console.log(daticos);
-            this.setState({data:{values:daticos}});
-        }.bind(this)
-    });
-}
 
-componentDidMount() {
-    this.parser();
-    console.log(this.state.data);
-}
+        onClick(any)
+        {
+        this.setState({data:this.props.data});
+        vegaEmbed(this.div, this.state.spec)
+        .catch(err => console.log(err))
+              .then((res) =>  res.view.insert("data", this.state.data).run());
+        }
+      
+        componentWillReceiveProps()
+        {
+        this.setState({data:this.props.data});
+        vegaEmbed(this.div, this.state.spec)
+        .catch(err => console.log(err))
+              .then((res) =>  res.view.insert("data", this.props.data).run());
+        }
+      
+        render() 
+        {
+          return (
+            <div>
+            <div ref={(div) => this.div=div}></div>
+            </div>
+          );
+        }
+    }
 
 
+export default Graph;
 
-render() {
-    return <VegaLite spec={this.state.spec} data={this.state.data}/>;
-    
-}
-}
+
