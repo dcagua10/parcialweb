@@ -3,7 +3,6 @@ import './App.css';
 //Imports
 //import Formulario from './componentes/Formulario';
 import Header from './componentes/Layouts/Header.js';
-import Footer from './componentes/Layouts/Footer.js';
 import Papaparser from './componentes/Papaparser.js';
 import Graph from './componentes/Graph.js';
 
@@ -46,15 +45,22 @@ class App extends Component {
     return <Fragment>
     
     <div className="App">
-    {/*         <h1>Exam 1 Web Dev</h1>
-      <div className="AppH">
-      <header className="App-header">
-    <h1> Welcome </h1> */}
-    {/* Formulario de ejemplo */}
-    {/* <Formulario/> */}
     <Header/>
-    <Papaparser/>
-    <Graph/>
+    <div className="container">
+    <div className="graph1">
+    <br/><h1>Grafica #1</h1>
+    <br/><Papaparser/>
+    </div>
+
+    <div className="graph2">
+    <br/><h1>Grafica #2</h1>
+    <br/><Graph/>
+    </div>
+    </div>
+    {/* <Formulario/> */}
+    {/*     <Papaparser/>
+    <Graph/> */}
+ 
     </div> 
     
     </Fragment>
