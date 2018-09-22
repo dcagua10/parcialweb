@@ -5,7 +5,7 @@ import './App.css';
 import Header from './componentes/Layouts/Header.js';
 import FormularioJSON from './componentes/FormularioJSON.js';
 import FormularioCSV from './componentes/FormularioCSV.js';
-import Review from './componentes/Review.js';
+import ReviewList from './componentes/ReviewList.js'
 
 class App extends Component {
   
@@ -32,16 +32,11 @@ class App extends Component {
     <FormularioCSV/>
     </div>
 
-    <div className="review">
-    <br/><h1>Add a new graph review</h1>
-    <Review/>
+    <div className="reviewList">
+    <br/><h1>Here are the last 20 visualizations</h1>
+    <ReviewList/>
     </div>
     </div>
-    
-    {/* <Formulario/> */}
-    {/*     <Papaparser/>
-    <Graph/> */}
- 
     </div> 
     
     </Fragment>

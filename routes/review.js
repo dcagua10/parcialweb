@@ -12,12 +12,12 @@ router.post('/api/review', function(req, res) {
     last_name,
     description,
     rating,
-    dataG1,
-    dataG2
+    data,
+    graphType,
   } = body;
   console.log(body);
 
-  var review={first_name:first_name,last_name:last_name,description:description,rating:rating, dataG1:null, dataG2:null};
+  var review={first_name:first_name,last_name:last_name,description:description,rating:rating, data:data, graphType:graphType};
 
   MongoClient.connect(url, function (err,db) 
   {

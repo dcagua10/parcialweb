@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Graph from './Graph.js';
+import Review from './Review.js';
 
 //Export Default -> No tiene {}
 class FormularioJSON extends Component {
@@ -53,7 +54,12 @@ class FormularioJSON extends Component {
     rows="10"></textarea>
     <h2>This is your graph</h2>
     <Graph data={this.state.jsonStr}/>
+    <div className="review">
+    <br/><h1>Add a new JSON graph review</h1>
+    <Review data={this.state.jsonStr} graphType='JSON'/>
     </div>
+    </div>
+    
     );
   }
 }

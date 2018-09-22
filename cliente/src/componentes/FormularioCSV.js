@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Papa from 'papaparse';
 import GraphCSV from './GraphCSV.js';
+import Review from './Review.js';
+
 
 //Export Default -> No tiene {}
 class FormularioCSV extends Component {
@@ -20,8 +22,9 @@ class FormularioCSV extends Component {
                 }
             },
             file: null
+            
         };
-
+        
         this.onChange = this.onChange.bind(this);
         this.parseInfo = this.parseInfo.bind(this);
         
@@ -35,29 +38,34 @@ class FormularioCSV extends Component {
     parseInfo()
     {
         Papa.parse(this.state.file, {
-        download: true,
-        header: true,
-        complete: function(results) {
-            const datos = results.data;
-            console.log(datos);
-            this.setState({
-                data: datos,
-              });
-        }
-    });
-}
-
-render() 
-{
-    return(
-        <div className = "csvInput">
-        <br/><input type="file" onChange={this.onChange} id="file" name="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" multiple />
-        <br/><br/><button className="nav_btn"  onClick={evt=>this.parseInfo(evt)}>Generate CSV Graph</button>
-        <h2>This is your graph</h2>
-        <GraphCSV data={this.state.data}/>
-        </div>
-        );
+            download: true,
+            header: true,
+            complete: function(results) {
+                const datos = results.data;
+                console.log(datos);
+                this.setState({
+                    data: datos,
+                });
+            }
+        });
     }
-}
-export default FormularioCSV;
-
+    
+    render() 
+    {
+        return(
+            <div className = "csvInput">
+            <br/><input type="file" onChange={this.onChange} id="file" name="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" multiple />
+            <br/><br/><button className="nav_btn"  onClick={evt=>this.parseInfo(evt)}>Generate CSV Graph</button>
+            <h2>This is your graph</h2>
+            <GraphCSV data={this.state.data}/>
+            <div className="review">
+            <br/><h1>Add a new CSV graph review</h1>
+            <Review data={this.state.jsonStr} graphType='CSV'/>
+            </div>
+            </div>
+            );
+        }
+    }
+    export default FormularioCSV;
+    
+    
