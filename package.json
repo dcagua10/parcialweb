@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node ./bin/www",
-    "heroku-postbuild": "cd cliente && yarn install && yarn build"
+    "heroku-postbuild": "cd cliente && npm install && npm run"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
