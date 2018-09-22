@@ -92,8 +92,7 @@ For the development of the page, the technologies used were:
 
 ## Screenshot 
 Here is a small view of the project developed
-
-Image Here
+<img src="https://github.com/dcagua10/parcialweb/blob/master/public/images/ss.PNG">
 
 ## Author
 * [__Daniel Cagua Ennis__](https://github.com/dcagua10)
