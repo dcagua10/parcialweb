@@ -47,6 +47,7 @@ class FormularioJSON extends Component {
     return(
     <div className = "TextArea">
     <h2>Put your JSON input</h2>
+    <small>JSON Example: <a href="https://vega.github.io/vega-lite/examples/bar.html">Click Here</a></small><br/>
     <textarea onChange={(err)=>this.handleChange(err)} 
     value={JSON.stringify(this.state.jsonStr,null,2)}
     name='inputJSON'
